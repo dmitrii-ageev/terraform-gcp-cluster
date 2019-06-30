@@ -54,11 +54,6 @@ variable "cluster_autoscaling" {
   default = false
 }
 
-variable "vertical_pod_autoscaling" {
-  description = "Vertical Pod Autoscaling automatically adjusts the resources of pods controlled by it."
-  default = false
-}
-
 variable "horizontal_pod_autoscaling" {
   description = "The status of the Horizontal Pod Autoscaling."
   default = false
@@ -115,12 +110,12 @@ variable "initial_node_count" {
 
 variable "min_node_count" {
   description = "If set, enables node pool downscale"
-  default = ""
+  default = 1
 }
 
 variable "max_node_count" {
   description = "If set, enables node pool autoscale"
-  default = ""
+  default = 1
 }
 
 variable "machine_type" {

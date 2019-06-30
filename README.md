@@ -22,7 +22,6 @@ Module Input Variables
 | `services_ipv4_cidr_block` | The IP address range of the services IPs in this cluster | `""` |
 | `labels`          | The GCE resource labels (a map of key/value pairs) to be applied to the cluster | `{}` |
 | `cluster_autoscaling` | Whether cluster-wide autoscaling is enabled (i.e.node autoprovisioning is enabled) | `false` |
-| `vertical_pod_autoscaling` | Vertical Pod Autoscaling automatically adjusts the resources of pods controlled by it | `false` |
 | `horizontal_pod_autoscaling` | The status of the Horizontal Pod Autoscaling | `false` |
 | `http_load_balancing` | The status of the HTTP (L7) load balancing controller addon | `false` |
 | `kubernetes_dashboard` | The status of the Kubernetes Dashboard addon, which controls whether the Kubernetes Dashboard is enabled for this cluster | `false` |

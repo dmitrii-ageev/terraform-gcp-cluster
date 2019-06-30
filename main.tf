@@ -26,7 +26,6 @@ resource "google_container_cluster" "this" {
   cluster_autoscaling {
     enabled = "${var.cluster_autoscaling}"
   }
-  vertical_pod_autoscaling = "${var.vertical_pod_autoscaling}"
   addons_config = {
     horizontal_pod_autoscaling = {
       disabled = "${!var.horizontal_pod_autoscaling}"
