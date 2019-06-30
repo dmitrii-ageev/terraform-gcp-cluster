@@ -19,11 +19,26 @@ variable "location" {
   description = "The location (region or zone) in which the cluster resides."
 }
 
+variable "master_ipv4_cidr_block" {
+  description = "The IP range in CIDR notation to use for the hosted master network."
+  default = ""
+}
+
+variable "cluster_ipv4_cidr_block" {
+  description = "The IP address range for the cluster pod IPs."
+  default = ""
+}
+
+variable "services_ipv4_cidr_block" {
+  description = "The IP address range of the services IPs in this cluster."
+  default = ""
+}
+
 variable "network" {
   description = "Cluster network"
 }
 
-variable "subnet" {
+variable "subnetwork" {
   description = "The name or self_link of the Google Compute Engine subnetwork in which the cluster's instances are launched."
 }
 

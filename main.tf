@@ -3,7 +3,6 @@ resource "google_container_cluster" "this" {
   location = "${var.location}"
 
   name = "${var.name}-cluster"
-  min_master_version = "${data.google_container_engine_versions.this.default_cluster_version}"
 
   remove_default_node_pool = true
   initial_node_count = "${var.initial_node_count}"
@@ -12,7 +11,7 @@ resource "google_container_cluster" "this" {
   monitoring_service = "monitoring.googleapis.com/kubernetes"
 
   network = "${var.network}"
-  subnetwork = "${var.subnet}"
+  subnetwork = "${var.subnetwork}"
 
   // https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#Cluster.DatabaseEncryption
 
@@ -46,10 +45,6 @@ resource "google_container_cluster" "this" {
       disabled = "${var.istio}"
     }
   }
-  ip_allocation_policy = {
-    cluster_ipv4_cidr_block = "${lookup(local.cluster_ipv4_cidr_block, var.location)}"
-    services_ipv4_cidr_block = "${lookup(local.services_ipv4_cidr_block, var.location)}"
-  }
   lifecycle {
     ignore_changes = [
       "min_master_version",
@@ -80,8 +75,13 @@ resource "google_container_cluster" "this" {
       display_name = "${var.authorized_network_name}"
     }
   }
+  ip_allocation_policy = {
+    cluster_ipv4_cidr_block = "${var.cluster_ipv4_cidr_block}"
+    services_ipv4_cidr_block = "${var.services_ipv4_cidr_block}"
+  }
   private_cluster_config = {
+    enable_private_endpoint = false
     enable_private_nodes = true
-    master_ipv4_cidr_block = "${lookup(local.master_ipv4_cidr_block, var.location)}"
+    master_ipv4_cidr_block = "${var.master_ipv4_cidr_block}"
   }
 }
