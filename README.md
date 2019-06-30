@@ -18,6 +18,7 @@ Module Input Variables
 | `security_group`  | The name of the RBAC security group for use with Google security groups in Kubernetes RBAC |  _mandatory_   |
 | `service_account` | A service account to associate with nodes     |  _mandatory_   |
 | `master_ipv4_cidr_block`   | The IP range in CIDR notation to use for the hosted master network | `""` |
+| `node_ipv4_cidr_block` | The IP address range for the cluster node IPs | `""` |
 | `cluster_ipv4_cidr_block`  | The IP address range for the cluster pod IPs | `""` |
 | `services_ipv4_cidr_block` | The IP address range of the services IPs in this cluster | `""` |
 | `labels`          | The GCE resource labels (a map of key/value pairs) to be applied to the cluster | `{}` |

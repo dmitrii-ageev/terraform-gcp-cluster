@@ -23,6 +23,11 @@ variable "master_ipv4_cidr_block" {
   default = ""
 }
 
+variable "node_ipv4_cidr_block" {
+  description = "The IP address range for the cluster node IPs."
+  default = ""
+}
+
 variable "cluster_ipv4_cidr_block" {
   description = "The IP address range for the cluster pod IPs."
   default = ""
