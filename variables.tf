@@ -24,7 +24,6 @@ variable "location" {
 
 variable "master_ipv4_cidr_block" {
   description = "The IP range in CIDR notation to use for the hosted master network."
-  default = ""
 }
 
 variable "node_ipv4_cidr_block" {
