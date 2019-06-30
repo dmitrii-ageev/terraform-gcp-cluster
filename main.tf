@@ -16,7 +16,6 @@ resource "google_container_cluster" "this" {
   // https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#Cluster.DatabaseEncryption
 
   resource_labels = "${var.labels}"
-
   authenticator_groups_config {
     security_group = "${var.security_group}"
   }

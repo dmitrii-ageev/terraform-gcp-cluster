@@ -5,7 +5,6 @@ variable "name" {
 
 variable "labels" {
   description = "The GCE resource labels (a map of key/value pairs) to be applied to the cluster."
-  type = map(string)
   default = {}
 }
 
