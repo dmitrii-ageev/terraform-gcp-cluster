@@ -3,6 +3,10 @@ variable "name" {
   description = "Cluster name"
 }
 
+variable "project" {
+  description = "The Google Project Id where the cluster belongs"
+}
+
 variable "labels" {
   description = "The GCE resource labels (a map of key/value pairs) to be applied to the cluster."
   default = {}

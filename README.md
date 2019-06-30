@@ -10,6 +10,7 @@ Module Input Variables
 | Parameter         | Description                                   | Default        |
 | :--------         | :----------                                   | :------        |
 | `name`            | The cluster name                              |  _mandatory_   |
+| `project`         | The Google Project Id where cluster belongs   |  _mandatory_   |
 | `location`        | The location (region or zone) in which the cluster resides |  _mandatory_   |
 | `network`         | The cluster network                           |  _mandatory_   |
 | `subnetwork`      | The name or self_link of the Google Compute Engine subnetwork in which the cluster's instances are launched |  _mandatory_   |

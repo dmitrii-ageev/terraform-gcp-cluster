@@ -1,5 +1,6 @@
 resource "google_container_node_pool" "this" {
   provider = "google-beta"
+  project = "${var.project}"
   location = "${var.location}"
 
   name = "${var.name}-node-pool"

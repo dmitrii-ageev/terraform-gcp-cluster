@@ -1,5 +1,6 @@
 resource "google_container_cluster" "this" {
   provider = "google-beta"
+  project = "${var.project}"
   location = "${var.location}"
 
   name = "${var.name}-cluster"
