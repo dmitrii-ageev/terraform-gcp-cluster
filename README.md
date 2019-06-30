@@ -47,7 +47,7 @@ Usage
 
 *Note:*
 With Terraform versions prior to 0.11.14 use the module versions up to 1.9.99
-With Terraform version 0.12.0 and higher use module versions after 2.x.x
+With Terraform version 0.12.0 and higher use module versions starting from 2.0.0
 
 ```hcl
 module "cluster" {
