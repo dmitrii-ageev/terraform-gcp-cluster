@@ -1,9 +1,9 @@
 resource "google_container_node_pool" "this" {
   provider = "google-beta"
-  project = "${var.project}"
+  project  = "${var.project}"
   location = "${var.location}"
 
-  name = "${var.name}-node-pool"
+  name    = "${var.name}-node-pool"
   cluster = "${google_container_cluster.this.name}"
 
   node_count = "${var.initial_node_count}"
@@ -15,7 +15,7 @@ resource "google_container_node_pool" "this" {
   }
 
   management = {
-    auto_repair = "${var.auto_repair}"
+    auto_repair  = "${var.auto_repair}"
     auto_upgrade = "${var.auto_upgrade}"
   }
 
@@ -26,10 +26,10 @@ resource "google_container_node_pool" "this" {
 
   node_config {
     disk_size_gb = "${var.disk_size_gb}"
-    disk_type = "${var.disk_type}"
-    image_type = "${var.image_type}"
+    disk_type    = "${var.disk_type}"
+    image_type   = "${var.image_type}"
     machine_type = "${var.machine_type}"
-    preemptible = "${var.preemptible}"
+    preemptible  = "${var.preemptible}"
 
     oauth_scopes = "${var.oauth_scopes}"
 

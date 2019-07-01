@@ -19,7 +19,6 @@ Module Input Variables
 | `security_group`  | The name of the RBAC security group for use with Google security groups in Kubernetes RBAC |  _mandatory_   |
 | `service_account` | A service account to associate with nodes     |  _mandatory_   |
 | `master_ipv4_cidr_block`   | The IP range in CIDR notation to use for the hosted master network | _mandatory_ |
-| `node_ipv4_cidr_block` | The IP address range for the cluster node IPs | `""` |
 | `cluster_ipv4_cidr_block`  | The IP address range for the cluster pod IPs | `""` |
 | `services_ipv4_cidr_block` | The IP address range of the services IPs in this cluster | `""` |
 | `labels`          | The GCE resource labels (a map of key/value pairs) to be applied to the cluster | `{}` |
@@ -52,20 +51,20 @@ With Terraform version 0.12.0 and higher use module versions starting from 2.0.0
 
 ```hcl
 module "cluster" {
-  source = "git::git@github.com:dmitrii-ageev/terraform-gcp-cluster?ref=0.0.1"
+  source = "git::git@github.com:dmitrii-ageev/terraform-gcp-cluster?ref=0.0.7"
 
   name     = "terraform-storage-production"
   location = "us-east1-a"
-  
+
   network    = "${module.vpc.network}"
   subnetwork = "${module.vpc.subnetwork}"
-  
+
   authorized_network      = "${var.office_network}"
   authorized_network_name = "${var.office_network_name}"
-  
+
   security_group = "gke-security-groups@yourdomain.com."
   service_account = "${var.service_account}"
-  
+
   labels = {
     application = "terraform"
     environment = "production"

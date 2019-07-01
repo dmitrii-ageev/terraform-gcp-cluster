@@ -1,17 +1,17 @@
 resource "google_container_cluster" "this" {
   provider = "google-beta"
-  project = "${var.project}"
+  project  = "${var.project}"
   location = "${var.location}"
 
   name = "${var.name}-cluster"
 
   remove_default_node_pool = true
-  initial_node_count = "${var.initial_node_count}"
+  initial_node_count       = "${var.initial_node_count}"
 
-  logging_service = "logging.googleapis.com/kubernetes"
+  logging_service    = "logging.googleapis.com/kubernetes"
   monitoring_service = "monitoring.googleapis.com/kubernetes"
 
-  network = "${var.network}"
+  network    = "${var.network}"
   subnetwork = "${var.subnetwork}"
 
   // https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#Cluster.DatabaseEncryption
@@ -21,7 +21,7 @@ resource "google_container_cluster" "this" {
     security_group = "${var.security_group}"
   }
   database_encryption {
-    state = "${var.database_encryption_key == "" ? "DECRYPTED" : "ENCRYPTED"}"
+    state    = "${var.database_encryption_key == "" ? "DECRYPTED" : "ENCRYPTED"}"
     key_name = "${var.database_encryption_key}"
   }
   cluster_autoscaling {
@@ -33,15 +33,15 @@ resource "google_container_cluster" "this" {
     }
 
     http_load_balancing = {
-      disabled = "${var.http_load_balancing}"
+      disabled = "${!var.http_load_balancing}"
     }
 
     kubernetes_dashboard = {
-      disabled = "${var.kubernetes_dashboard}"
+      disabled = "${!var.kubernetes_dashboard}"
     }
 
     istio_config = {
-      disabled = "${var.istio}"
+      disabled = "${!var.istio}"
     }
   }
   lifecycle {
@@ -70,18 +70,17 @@ resource "google_container_cluster" "this" {
   }
   master_authorized_networks_config = {
     cidr_blocks = {
-      cidr_block = "${var.authorized_network}"
+      cidr_block   = "${var.authorized_network}"
       display_name = "${var.authorized_network_name}"
     }
   }
   ip_allocation_policy = {
-    node_ipv4_cidr_block = "${var.node_ipv4_cidr_block}"
-    cluster_ipv4_cidr_block = "${var.cluster_ipv4_cidr_block}"
+    cluster_ipv4_cidr_block  = "${var.cluster_ipv4_cidr_block}"
     services_ipv4_cidr_block = "${var.services_ipv4_cidr_block}"
   }
   private_cluster_config = {
     enable_private_endpoint = false
-    enable_private_nodes = true
-    master_ipv4_cidr_block = "${var.master_ipv4_cidr_block}"
+    enable_private_nodes    = true
+    master_ipv4_cidr_block  = "${var.master_ipv4_cidr_block}"
   }
 }
