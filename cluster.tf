@@ -27,20 +27,20 @@ resource "google_container_cluster" "this" {
   cluster_autoscaling {
     enabled = "${var.cluster_autoscaling}"
   }
-  addons_config = {
-    horizontal_pod_autoscaling = {
+  addons_config {
+    horizontal_pod_autoscaling {
       disabled = "${!var.horizontal_pod_autoscaling}"
     }
 
-    http_load_balancing = {
+    http_load_balancing {
       disabled = "${!var.http_load_balancing}"
     }
 
-    kubernetes_dashboard = {
+    kubernetes_dashboard {
       disabled = "${!var.kubernetes_dashboard}"
     }
 
-    istio_config = {
+    istio_config {
       disabled = "${!var.istio}"
     }
   }
@@ -68,17 +68,17 @@ resource "google_container_cluster" "this" {
     password = ""
     username = ""
   }
-  master_authorized_networks_config = {
-    cidr_blocks = {
+  master_authorized_networks_config {
+    cidr_blocks {
       cidr_block   = "${var.authorized_network}"
       display_name = "${var.authorized_network_name}"
     }
   }
-  ip_allocation_policy = {
+  ip_allocation_policy {
     cluster_ipv4_cidr_block  = "${var.cluster_ipv4_cidr_block}"
     services_ipv4_cidr_block = "${var.services_ipv4_cidr_block}"
   }
-  private_cluster_config = {
+  private_cluster_config {
     enable_private_endpoint = false
     enable_private_nodes    = true
     master_ipv4_cidr_block  = "${var.master_ipv4_cidr_block}"

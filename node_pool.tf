@@ -14,7 +14,7 @@ resource "google_container_node_pool" "this" {
     ]
   }
 
-  management = {
+  management {
     auto_repair  = "${var.auto_repair}"
     auto_upgrade = "${var.auto_upgrade}"
   }
@@ -33,7 +33,7 @@ resource "google_container_node_pool" "this" {
 
     oauth_scopes = "${var.oauth_scopes}"
 
-    metadata {
+    metadata = {
       disable-legacy-endpoints = "true"
     }
 
