@@ -73,8 +73,8 @@ module "cluster" {
 ```
 
 
-Outputs
-=======
+Module Output Variables
+-----------------------
 
 | Parameter                | Description                                                  |
 | :--------                | :----------                                                  |
@@ -84,7 +84,12 @@ Outputs
 | `cluster_ca_certificate` | The CA certificate of the cluster                            |
 
 
+Changelog
+---------
+
+* `0.0.8` - Fix Terraform validate warnings
+
 Author
-======
+------
 
 Dmitrii Ageev <d.ageev@gmail.com>
