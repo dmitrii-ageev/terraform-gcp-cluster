@@ -131,7 +131,7 @@ variable "disk_type" {
   default     = "pd-standard"
 }
 
-variable disk_size_gb {
+variable "disk_size_gb" {
   description = "Size of the disk attached to each node, specified in GB."
   default     = 100
 }
@@ -155,4 +155,4 @@ variable "auto_upgrade" {
 variable "auto_repair" {
   description = "Whether the nodes will be automatically repaired"
   default     = true
-}
+

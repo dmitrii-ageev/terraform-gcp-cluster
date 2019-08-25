@@ -1,3 +1,3 @@
 data "google_project" "this" {
-  project_id = "${var.project}"
+  project_id = var.project
 }
