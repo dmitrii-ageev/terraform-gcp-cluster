@@ -89,5 +89,5 @@ Changelog
 Author
 ------
 
-Dmitrii Ageev <d.ageev@gmail.com>
+Dmitrii Ageev <dmitrii@opsworks.ru>
 
